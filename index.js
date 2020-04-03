@@ -9,8 +9,8 @@ const axios = require('axios');
 const BACKEND_HOST = process.env.BACKEND_HOST;
 
 exports.handler =  async function(event, context, callback) {
-    var token = event.headers.Authorization ;
-    let userResponse = await axios.get(`${BACKEND_HOST}/user`, {
+    var token = event.authorizationToken ;
+    let userResponse = await axios.get(`${BACKEND_HOST}/user/token`, {
       headers: {
         authorization: `${token}`,
       },
